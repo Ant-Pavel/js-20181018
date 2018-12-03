@@ -6,7 +6,6 @@ export default class ShoppingCart extends Component {
 
     this._element = element;
 
-    // this._items = [];
     this._items = {};
 
     this._render();
