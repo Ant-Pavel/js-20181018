@@ -10,7 +10,7 @@ constructor({element}) {
 
   this.on('change', '[data-element="sorting"]', (event) => {
     let target = event.delegateTarget;
-    this._trigger('changeSort', {sortValue: target.value, sortType: target.dataset.sortType });
+    this._trigger('changeSort', {sortField: target.value, sortType: target.dataset.sortType });
   });
 }
 

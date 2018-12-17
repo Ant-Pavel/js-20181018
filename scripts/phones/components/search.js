@@ -11,7 +11,7 @@ constructor({element}) {
   this._debouncedTrigger = debounce(this._trigger, 600);
 
   this.on('input', '[data-element="search-input"]', (event) => {
-    this._debouncedTrigger('searchInput', event.delegateTarget.value);
+    this._debouncedTrigger('searchInput', { search: event.delegateTarget.value });
   });
 }
 

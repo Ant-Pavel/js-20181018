@@ -15,7 +15,6 @@ export default class PhoneViewer extends Component {
       this._trigger('add', event.delegateTarget.dataset.phoneId);
     });
   }
-
   showPhone(phone) {
     this._phone = phone;
 

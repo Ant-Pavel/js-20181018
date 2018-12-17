@@ -26,38 +26,10 @@ export default class PhoneCatalog extends Component {
     this.show();
   }
 
-  sortPhones({sortValue = this._INITIAL_SORT_VALUE, sortType = this._INITIAL_SORT_TYPE} = {}) {
-    let { _phones: phones } = this;
-
-    phones.sort((a, b)=> {
-
-      if(sortType === "number") {
-        a[sortValue] = +a[sortValue];
-        b[sortValue] = +b[sortValue];
-      }
-
-      return a[sortValue] > b[sortValue] ? 1 : -1;
-    });
-
-    this._render();
-  }
-
-  searchPhones(needle) {
-    needle = needle.trim();
-    if (needle.length) {
-      this._searchResults = this._phones.filter((phone) => {
-        return phone.name.toLowerCase().includes(needle.toLowerCase());
-      });
-    } else {
-      this._searchResults = null;
-    }
-    this._render();
-  }
-
   _render() {
     this._element.innerHTML = `
        <ul class="phones">
-          ${ (this._searchResults || this._phones).map(phone => `
+          ${ this._phones.map(phone => `
             <li class="thumbnail" data-phone-id="${phone.id}">
               <a data-element="phone-link" data-phone-id="${phone.id}" href="#!/phones/${phone.id}" class="thumb">
                   <img alt="${phone.name}" src="${phone.imageUrl}">
